@@ -8,22 +8,24 @@
 </head>
 <body>
     <?php
-    
+    session_start();
     // Save a list of books to an array
-    $books = 
+    $_SESSION['books'] = 
     [
         ['id' => 1, 'title' => 'Lord of the Rings: The Fellowship of the Ring', 'price' => 14.99],
         ['id' => 2, 'title' => 'Harry Potter and the Prisoner of Azkaban', 'price' => 13.99],
         ['id' => 3, 'title' => 'We are Legion (We are Bob)(Bobiverse Book 1)', 'price' => 6.95]
     ];
-
+    include "View/nav.php";
     ?>
 
     <div class="container mt-4">
+        <h1>Book Store</h1>
+        <h2>Select A Book To Add to Cart</h2>
         <div class="content border rounded shadow p-4">
             <div class="card-group">
                 <?php
-                foreach($books as $book)
+                foreach($_SESSION['books'] as $book)
                 {
                     $title = $book['title'];
                     $price = $book['price'];
@@ -34,7 +36,7 @@
                     <div class='card-body'>
                         <h5 class='card-title'>Title: $title</h5>
                         <p class='card-text'>Price: $price</p>
-                        <a href='?add=$id'>Add to Cart</a>
+                        <a href='Model/add_to_cart.php?add=$id'>Add to Cart</a>
                     </div>
                     </div>
                     ";
