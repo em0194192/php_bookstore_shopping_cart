@@ -19,7 +19,7 @@ if(isset($_GET['add']))
         if($addBookId == $book['id'])
         {
             //book already in cart - route to display cart - stop further code execution
-            header("Location: ../view/show_cart.php?added=already");
+            header("Location: ../index.php?added=already&action=cart");
             //halt further code execution
             exit;
         }
@@ -43,7 +43,7 @@ if(isset($_GET['add']))
             $_SESSION['cart'][] = $newBook;
 
             //book added - route to display cart - stop further code execution
-            header("Location: ../view/show_cart.php?added=true");
+            header("Location: ../index.php?action=cart&added=true");
             //halt further code execution
             exit;
         }

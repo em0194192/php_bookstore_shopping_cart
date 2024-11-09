@@ -17,36 +17,30 @@
         ['id' => 3, 'title' => 'We are Legion (We are Bob)(Bobiverse Book 1)', 'price' => 6.95]
     ];
     include "View/nav.php";
+
+    $action = isset($_GET['action']) ? $_GET['action'] : ''; 
+
+    switch ($action) {
+        case 'store':
+            // include the store
+            include "View/show_store.php";
+            break;
+        case '':
+            // include the store (no action set)
+            include "View/show_store.php";
+            break;
+        case 'cart':
+            //include the cart
+            include "View/show_cart.php";
+            break;
+        default:
+            echo("Error with action switch statement");
+            break;
+    }
+
     ?>
 
-    <div class="container mt-4">
-        <h1>Book Store</h1>
-        <h2>Select A Book To Add to Cart</h2>
-        <div class="content border rounded shadow p-4">
-            <div class="card-group">
-                <?php
-                foreach($_SESSION['books'] as $book)
-                {
-                    $title = $book['title'];
-                    $price = $book['price'];
-                    $id = $book['id'];
-                    //load books to the page with echo (bootstrap cards) 
-                    echo "
-                    <div class='card'>
-                    <div class='card-body'>
-                        <h5 class='card-title'>Title: $title</h5>
-                        <p class='card-text'>Price: $price</p>
-                        <a href='Model/add_to_cart.php?add=$id'>Add to Cart</a>
-                    </div>
-                    </div>
-                    ";
 
-                }
-                
-                ?>
-            </div>
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

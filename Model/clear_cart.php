@@ -11,8 +11,8 @@ if(isset($_GET['cart']))
         // destroy the session
         session_destroy(); 
 
-        //book already in cart - route to display cart - stop further code execution
-        header("Location: ../view/show_cart.php?added=already");
+        //route back to now empty cart
+        header("Location: ../index.php?action=cart");
         //halt further code execution
         exit;
     }

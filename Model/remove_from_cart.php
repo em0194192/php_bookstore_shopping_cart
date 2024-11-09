@@ -14,7 +14,7 @@ if(isset($_GET['remove']))
             //Use unset to remove the matching book from the cart based on id
             unset($_SESSION['cart'][$bookId]); 
             //book found in cart and removed - now route back to display cart
-            header("Location: ../view/show_cart.php?removed=true");
+            header("Location: ../index.php?action=cart");
             //halt further code execution
             exit;
         }
