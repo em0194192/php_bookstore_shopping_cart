@@ -1,4 +1,5 @@
 <?php
+//start session to access session arrays
 session_start();
 //check for a remove key in the query string
 if(isset($_GET['remove']))
@@ -9,6 +10,7 @@ if(isset($_GET['remove']))
     //find book by iterating through cart
     foreach ($_SESSION['cart'] as $bookId => $book)
     {
+        //when match is found
         if($removeBookId == $book['id'])
         {
             //Use unset to remove the matching book from the cart based on id

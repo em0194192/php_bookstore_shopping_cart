@@ -3,7 +3,7 @@
         <div class="content border rounded shadow p-4">
             <div class="card-group">
                 <?php
-                    //if session has already got a cart or not
+                    //check if session doesn't have a cart
                     if (!isset($_SESSION['cart']))
                     {
                         //if not, initialize cart with an empty array
@@ -15,9 +15,10 @@
                         // Display a message if the cart is empty
                         echo "<p>Your cart is currently empty!</p>";
                     } else {
-                        //Iterate through cart and display contents
+                        //Iterate through cart and display its contents
                         foreach($_SESSION['cart'] as $book)
                         {
+                            //assign variables to array values
                             $title = $book['title'];
                             $price = $book['price'];
                             $id = $book['id'];

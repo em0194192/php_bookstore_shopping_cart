@@ -1,8 +1,11 @@
 <?php
+//start session to access session arrays
 session_start();
 
+//check if cart exists in query string
 if(isset($_GET['cart']))
 {
+    //check if value for cart is clear
     if($_GET['cart'] == "clear")
     {
         // remove all session variables
@@ -11,13 +14,15 @@ if(isset($_GET['cart']))
         // destroy the session
         session_destroy(); 
 
-        //route back to now empty cart
+        //route back to (now empty) cart
         header("Location: ../index.php?action=cart");
         //halt further code execution
         exit;
     }
 
 } else {
-    echo("Cart Already Empty");
-    //NEED TO ADD A REDIRECT AND FIGURE OUT HOW TO HIDE CLEAR CART LINK IF CART IS EMPTY
+    //route back to (now empty) cart
+    header("Location: ../index.php?action=cart");
+    //halt further code execution
+    exit;
 }

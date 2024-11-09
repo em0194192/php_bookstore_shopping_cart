@@ -4,6 +4,7 @@
         <div class="content border rounded shadow p-4">
             <div class="card-group">
                 <?php
+                //foreach loop through book array for store
                 foreach($_SESSION['books'] as $book)
                 {
                     $title = $book['title'];
